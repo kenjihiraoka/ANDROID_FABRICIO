@@ -1,15 +1,14 @@
-package com.example.kenji.ex_1_p1;
+package com.example.kenji.exercicio16_prova;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.ListView;
 
 public class MainActivity extends AppCompatActivity {
 
-    EditText EdtNome, EdtCidade, EdtEstado;
+    EditText EdtNome, EdtIdade, EdtCPF;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,18 +16,18 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         EdtNome = findViewById(R.id.EdtNome);
-        EdtCidade = findViewById(R.id.EdtCidade);
-        EdtEstado = findViewById(R.id.EdtEstado);
+        EdtIdade = findViewById(R.id.EdtIdade);
+        EdtCPF = findViewById(R.id.EdtCPF);
     }
 
-    public void Tela_2(View v) {
-        Pessoa pessoa = new Pessoa();
-        pessoa.setNome(EdtNome.getText().toString());
-        pessoa.setCidade(EdtCidade.getText().toString());
-        pessoa.setEstado(EdtEstado.getText().toString());
+    public void Show(View v) {
+        Aluno aluno = new Aluno();
+        aluno.setNome(EdtNome.getText().toString());
+        aluno.setIdade(Integer.parseInt(EdtIdade.getText().toString()));
+        aluno.setCPF(EdtCPF.getText().toString());
 
         Intent it = new Intent(this, Main2Activity.class);
-        it.putExtra("pessoa", pessoa);
+        it.putExtra("aluno", aluno);
         startActivity(it);
     }
 }
